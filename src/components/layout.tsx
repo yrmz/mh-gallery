@@ -1,15 +1,14 @@
-import type { FC, ReactNode } from 'react';
-import { Navigator } from './navigator';
+import type { FC, ReactNode } from "react";
 
-type Props={
-    children:ReactNode
-}
+type Props = {
+	children: ReactNode;
+};
 
-export const Layout:FC<Props> = ({children}) => {
-    return (
-        <div>
-            {/* <Navigator /> */}
-            {children}
-        </div>
-    );
+export const Layout: FC<Props> = ({ children }) => {
+	return (
+		<div>
+			{/* <Navigator /> */}
+			{children}
+		</div>
+	);
 };
