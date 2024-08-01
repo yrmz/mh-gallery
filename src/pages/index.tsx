@@ -1,32 +1,69 @@
-import { Container, Image, Stack } from "react-bootstrap";
+import { SectionTitle } from "@/components/label";
+import {
+	Col,
+	Container,
+	Image,
+	Nav,
+	NavLink,
+	Navbar,
+	Row,
+	Stack,
+} from "react-bootstrap";
 
 export default function Home() {
 	return (
-		<Container fluid>
-			<Stack
-				gap={2}
-				style={{
-					height: "100vh",
-					justifyContent: "center",
-					alignItems: "center",
-				}}
-			>
-				<div style={{ marginTop: 20 }}>
-					<Image fluid src="./logo/logo_rectangle.jpg" alt="HM Gallery" />
-				</div>
-				<div>
-					<h2
-						style={{
-							textAlign: "center",
-							fontFamily: "monospace",
-							fontWeight: 700,
-							letterSpacing: ".3rem",
-							paddingBottom: "10px",
-							borderBottom: "2px solid #000",
-						}}
-					>
-						About Us
-					</h2>
+		<Container>
+			<Stack style={{ alignItems: "center" }}>
+				<header>
+					<div style={{ maxWidth: 200 }}>
+						<Image fluid src="./logo/logo_rectangle.jpg" alt="HM Gallery" />
+					</div>
+				</header>
+				<Navbar expand="lg">
+					<Nav className="me-auto" style={{ fontSize: "1.3rem" }}>
+						<NavLink href="#home">Home</NavLink>
+						<NavLink href="#about">About</NavLink>
+						<NavLink href="#works">Art Works</NavLink>
+						<NavLink href="#contact">Contact</NavLink>
+					</Nav>
+				</Navbar>
+			</Stack>
+			<Stack gap={5}>
+				<section id="home">
+					<SectionTitle>Welcome to HM Gallery</SectionTitle>
+					<p>
+						MH Galleryのキュレーションによるアート作品をご覧ください。
+						<br />
+						MHギャラリーのコレクションは、あなたをインスパイアし、
+						<br />
+						魅了する素晴らしい作品ばかりです。
+						<br />
+					</p>
+				</section>
+				<section id="about">
+					<SectionTitle>About Us</SectionTitle>
+					<p>
+						MH Galleryは、優れたアートの普及と販売に専念しています。
+						<br />
+						私たちは、アートが空間を変え、人生を豊かにする力を信じています。
+					</p>
+				</section>
+				<section id="works">
+					<SectionTitle>Ours ArtWorks</SectionTitle>
+					<Row lg={3}>
+						{Array.from({ length: 6 }).map((_, index) => (
+							<Col key={`artwork${index + 1}`}>
+								<Image
+									fluid
+									src={`./artworks/artwork${index + 1}.jpg`}
+									alt={`Art Work ${index + 1}`}
+								/>
+							</Col>
+						))}
+					</Row>
+				</section>
+				<section id="contact">
+					<SectionTitle>Contact Us</SectionTitle>
 					<Stack style={{ marginTop: "10px" }}>
 						<div>住所：東京都渋谷区恵比寿3-46-7-801</div>
 						<div>設立：2024年7月2日</div>
@@ -46,8 +83,17 @@ export default function Home() {
 						<div>代表者：代表取締役 鎗水萌</div>
 						<div>Tel：03-6356-8811</div>
 					</Stack>
-				</div>
+				</section>
 			</Stack>
+			<footer
+				style={{
+					textAlign: "center",
+					marginTop: "20px",
+					padding: "20px",
+				}}
+			>
+				© 2024 MH Gallery. All rights reserved.
+			</footer>
 		</Container>
 	);
 }
