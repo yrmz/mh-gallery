@@ -50,7 +50,7 @@ export default function Home() {
 				</section>
 				<section id="works">
 					<SectionTitle>Ours ArtWorks</SectionTitle>
-					<Row lg={3}>
+					<Row sm={3}>
 						{Array.from({ length: 6 }).map((_, index) => (
 							<Col key={`artwork${index + 1}`}>
 								<Image
